@@ -1,0 +1,13 @@
+{
+"items": [
+{"a":"About", "b":"A note on these prayers", "c":"About.html"},
+{"a":"Daily Prayer", "b":"Each day you pick your god...", "c":"../Prayer/DailyPrayer.html"},
+{"a":"Saint Faustina", "b":"Litany of Devine Mercy", "c":"SaintFaustina.html"},
+{"a":"Saint Joseph", "b":"Prayer of every man...", "c":"SaintJoseph.html"},
+{"a":"Saint Monica", "b":"Prayer of every father of a teenager...", "c":"SaintMonica.html"},
+{"a":"Nigerian Generations Prayer", "b":"It's the 4 generations of sin.", "c":"NigerianPrayer.html"},
+{"a":"The 15 stations of the cross", "b":"Suitable for use with a rosary", "c":"Stations.html"},
+{"a":"A Men's Group", "b":"A novena for a men's group", "c":"ForAMensGroup.html"}
+]
+}
+

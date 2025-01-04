@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Mass Survival Guide">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">Prayer Day [Day]</h1>
+				<p class="lead">God is the God of the living. St. Joseph, I'm asking for your prayers.</p>
+			</div>
+			<div>
+			<p class="sjlinks">
+				Skip to <a href="javascript:;" OnClick="getsj(0)">Next Day</a>
+				<a class="sjlink active sjlink1" href="javascript:;" OnClick="getsj(1)">Day 1</a>
+				<a class="sjlink sjlink2" href="javascript:;" OnClick="getsj(2)">Day 2</a>
+				<a class="sjlink sjlink3" href="javascript:;" OnClick="getsj(3)">Day 3</a>
+				<a class="sjlink sjlink4" href="javascript:;" OnClick="getsj(4)">Day 4</a>
+				<a class="sjlink sjlink5" href="javascript:;" OnClick="getsj(5)">Day 5</a>
+				<a class="sjlink sjlink6" href="javascript:;" OnClick="getsj(6)">Day 6</a>
+				<a class="sjlink sjlink7" href="javascript:;" OnClick="getsj(7)">Day 7</a>
+				<a class="sjlink sjlink8" href="javascript:;" OnClick="getsj(8)">Day 8</a>
+				<a class="sjlink sjlink9" href="javascript:;" OnClick="getsj(9)">Day 9</a>
+			</p>
+			
+			<div class="sns-psalm">
+				<p>
+					 Saint Joseph, you are the faithful protector and intercessor of all who love and venerate you. You know that I have confidence in you. After Jesus and Mary, I look to you as an example for holiness, for you are especially close to God. I humbly commend myself, my family and all that belongs to me to your intercession. I ask you, by your love for Jesus and Mary, to stay close to me and assist in this time of need.
+				</p>
+				<p>
+					Glorious Saint Joseph, spouse of Mary, pray for me to have a chaste, pure, humble, charitable, alert mind, and perfect resignation to the divine will. Be my coach through life that I may not disappoint Jesus and Mary.
+				</p>			
+				<p>
+					Saint Joseph, I ask your intercession in obtaining from the Divine Heart of Jesus the graces necessary for my spiritual and temporal welfare, especially the grace to give mercy and forgiveness to others, and the special request __________.
+			</p><p>
+					Guardian of the Word Incarnate, I feel confident that your prayers on my behalf will be heard before the throne of God.
+				</p>
+				<p class="sjtitle sjtitle1">St. Joseph, Jesus was the carpenter's son. St. Joseph kind and patient, pray for us.</p>
+				<p class="sjtitle sjtitle2">St. Joseph, you wanted to divorce her quietly but God had other plans. St. Joseph loyal and selfless, pray for us.</p>		
+				<p class="sjtitle sjtitle3">St. Joseph, you tried the inn, and ended up with a barn.  St. Jospeh of great faith, pray for us.</p>				
+				<p class="sjtitle sjtitle4">St. Joseph, you showed up in Egypt hungry, tired, and broke. St. Joseph who doesn't give up, pray for us.</p>
+				<p class="sjtitle sjtitle5">St. Joseph, your life didn't turn out the way you expected. St. Joseph who puts himself a distant third, pray for us.</p>
+				<p class="sjtitle sjtitle6">St. Joseph, you couldn't afford a lamb, so you brought 2 turtledoves. St. Joseph humble and poor, pray for us.</p>
+				<p class="sjtitle sjtitle7">St. Joseph, your actions spoke louder than words.  St. Joseph, holy and geniune, pray for us.</p>
+				<p class="sjtitle sjtitle8">St. Joseph, God gave you a job to do and the gifts to do it.  St. Joseph, dedicated and trustworthy, pray for us.</p>				
+				<p class="sjtitle sjtitle9">St. Joseph, you wanted to be there for Jesus until the end, but you weren't allowed. St. Joseph obedient with your last breath, pray for us.</p>				
+				<p>
+Glory be to the Father and to the Son and to the Holy Spirit, as it was in the beginning, is now and ever shall be. Amen. Alleluia.
+				</p>
+				<p>North American martyrs pray for us.</p>
+				<p>Saint Anthony of Padua pray for us.</p>
+				<p>Jesus, I trust in you.</p>
+				<p>Amen.</p>
+				<p>Skip to <a href="javascript:;" OnClick="getsj(0)">Next Day</a></p>
+				<p>Saint Faustina pray for us.</p>
+				<p>Saint Terese pray for us.</p>
+				<p>Saint Teresa of Kolkata pray for us.</p>
+				<p>Saint Monica pray for us.</p>
+				<p>Saint Augustine Number 2 pray for us.</p>
+				<p>Saint Gregory the Great pray for us.</p>
+				<p>Blessed Carlo Acutis pray for us.</
+		</div>
+
+	</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		var theclick = 1;
+		getsj(1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+skipclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 9) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+
+			
+
+			
+		};
+		
+	</script>
+
+</html>
