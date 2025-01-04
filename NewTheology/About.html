@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Super Novena">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+		div.sj-prayer {margin-bottom:8px;}
+		p.sj-litany, li {margin-bottom:8px; font-size:1.2em}
+	</style>	
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">New Theology</h1>
+				<p class="lead">New people and new problems require new effort</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>It's not new, yet it is</h2>
+				<p class="sj-litany">
+				New theology is the old theology repackaged for today. It's something you probably should have known, but you just found out about it and you're excited to share.
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>Our problems are new</h2>
+				<p class="sj-litany">
+				The Catholic church in Chicago is shrinking at a rapid pace. One of two outcomes will happen in the next 20 years.  Most likely, we will merge back with the dioceses of Vincennes, Indiana, from which we came.  The other outcome is that the numbers of Catholics moving to Chicago will be keep pace with Catholics we lose. 
+				</p>
+				<p class="sj-litany">
+				Since I moved to this diocese in the late 90's, we've shrunk a wopping 60% according to the statistics maintained by the diocese.  Lately, we've shrunk pre-Covid, during Covid, and post-Covid. We shrunk leading up to the recent consolidation, and attendance has declined post merger. Immigration to Chicago is less and less pre-canned Catholicism.
+				</p>
+				<p class="sj-litany">				
+				The band broke up, the team disolved, if we were ever with the in crowd, we're definately out.
+				</p>
+			</div>			
+			<div class="sj-prayer">				
+				<h2>Change for the sake of change</h2>
+				<p class="sj-litany">					
+				Change is hard.  Change is disruptive.  It can have negative, destructive consequences. But most of all, change takes practice.
+				</p>
+				<p class="sj-litany">	
+				The audience has changed, and their attitudes, language and priorities have changed.  
+				</p>
+				<p class="sj-litany">	
+				We desperately need change and we need it now.
+				</p>				
+				<p class="sj-litany">	
+				We're certainly not going to change anything that Jesus said. What then, must change?
+				</p>				
+			</div>			
+		</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		const tdt = new Date();
+		let day = tdt.getDay()
+		var theclick = 1;
+		getsj(day+1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+theclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			//$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 7) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+		
+		};
+		
+	</script>
+
+</html>

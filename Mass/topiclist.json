@@ -1,0 +1,14 @@
+{
+"items": [
+{"a":"About", "b":"How to use this guide", "c":"About"},
+{"a":"Spanish Gloria", "b":"Gloria a Dios en el cielo...", "c":"Gloria"},
+{"a":"Spanish Professinon of Faith", "b":"Creo en un solo Dios, Padre todopoderoso...", "c":"ProfesionDeFe"},
+{"a":"Spanish Our Father", "b":"Read along version in Spanish", "c":"PadreNuestro"},
+{"a":"Eucharist Prayer #2", "b":"Part 1: It is truly right and <b>just</b>...", "c":"Eucharist2"},
+{"a":"Eucharist Prayer #4", "b":"Part 1: It is truly right <b>to give you thanks</b>", "c":"Eucharist4"},
+{"a":"Eucharist Prayer #1", "b":"After holy, holy holy: <b>To you, therefore, most merciful Father...</b>", "c":"Eucharist1"},
+{"a":"Eucharist Prayer #3", "b":"After holy, holy holy: You are indeed Holy, O Lord, <b>the fount of all holiness...</b>", "c":"Eucharist3"},
+{"a":"Stations", "b":"The 14 stations of the cross", "c":"Stations"}
+]
+}
+

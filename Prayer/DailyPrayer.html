@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Daily Praper">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--base href="https://www.saturdaynightscripture.com/"-->
+	<!--base href="http://127.0.0.1:8887/" -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main"></section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		var topx = "/Prayer/";
+		var subj = "Prayer";
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0'); 
+		});	
+		<!-- Decide whether to load toc or topic here-->
+		$(function(){
+		  var loadtopic = true;
+		  var sPageURL = window.location.search.substring(1);
+		  
+		  if(typeof sPageURL === undefined) {loadtopic=false;}
+		  else if(sPageURL == "") {loadtopic=false;}
+		  
+		  
+		  if(loadtopic) {
+		     topicnum = sPageURL.split('=');
+			 if(typeof topicnum === undefined) {
+			   topx = topx+sPageURL+".html";
+			 } else if(topicnum.length == 1) {
+			   topx = topx+decodeURIComponent(sPageURL)+".html";
+			 } else {
+			   topx = topx+"topic"+topicnum[1]+".html";
+			 }
+		  }
+		  
+		  if(!loadtopic) {
+				var theday = 0;
+				var pmonth = 12; //The month to print
+				var dmonth = pmonth - 1; //month of calculation
+				//console.log('The day = ' + theday);
+				if(theday == 0) {
+					theday = 1;
+				} else {
+					theday = theday + 1;
+				}
+				//var d = new Date(2021,dmonth,theday);
+				var d = new Date();
+				var ddow = d.getDay();
+				var ddate = d.getDate();
+				var f = new Date(d.getFullYear(), d.getMonth(), 1);
+				var fdow = f.getDay();
+				//console.log('First is ' + pmonth + '/' + f.getDate() + '/' + f.getFullYear());
+				//console.log('First day is ' + fdow);
+				//console.log('Today is ' + pmonth + '/' + d.getDate() + '/' + d.getFullYear());
+				//console.log('Todays day is ' + ddow);
+				//console.log('Test date = ' + ddate); 
+				var adjfact = fdow - 1;
+
+				if((ddow == 0) && (fdow != 0)) {
+					adjfact = adjfact - 7;
+				}
+
+				//console.log('Adjust factor = ' + adjfact);
+				var topictogoto = ddate + adjfact;
+				//console.log('Go to topic' + topictogoto);
+				//var destp = "/" + 'Prayer' +"/topic" + topictogoto + ".html";
+				topx = "/Prayer/topic"+topictogoto+".html";
+				loadtopic=true;
+	  
+		  }
+		  
+		  
+		  if(loadtopic)
+		  {
+		      $(".inc-main").load(topx+" .container", '0', function(response, status, xhr) {
+			      if(status=="error") {
+						loadpage(subj);
+				  } 
+				  document.body.scrollTop = document.documentElement.scrollTop = 0;
+					$(".nav-link").removeClass("active");
+					$(".nav-"+subj).addClass("active");
+					$("div.navbar-collapse").removeClass("show");
+			  });
+		  } 
+		  
+		  if(loadtopic == false)  {
+			loadpage(subj);		  
+		  }
+  
+		});		
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});				
+		
+		function loadpage(subj) {
+			var z = 1;
+
+			$(".inc-main").load("/" + subj + "/topicx.html .container", 'm0', function() {
+				var tmp = $("div.topicrow").html();
+				$.getJSON("/" + subj + "/topiclist.json", function( data ) {
+					//topx = data;
+					$.each( data.items, function(i,item) {
+						var tmpn = tmp.replace("aaa", item.a);
+						tmpn = tmpn.replace("bbb", item.b);
+						tmpn = tmpn.replaceAll("ddd", z.toString());
+						tmpn = tmpn.replaceAll("ccc", item.c);
+						$("div.topiclist").append(tmpn);
+						z = z + 1;
+					})
+				});
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				$(".nav-link").removeClass("active");
+				$(".nav-"+subj).addClass("active");
+				$("div.navbar-collapse").removeClass("show");
+
+			});		  
+		  }
+		
+	</script>
+
+</html>

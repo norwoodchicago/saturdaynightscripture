@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Super Novena">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+		div.sj-prayer {margin-bottom:8px;}
+		p.sj-litany, li {margin-bottom:8px; font-size:1.2em}
+	</style>	
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">The sad rich man</h1>
+				<p class="lead">A unique encounter that doesn't end well</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>Those he meets</h2>
+				<p class="sj-litany">
+				Jesus meets many people in the gospels.  In all but one case, he heals and forgives.
+				</p>
+				<p class="sj-litany">
+				Matthew 12:15, "Many people followed him, and he cured them all."  Matthew 4:23, "He went around all of Galilee, teaching in their synagogues, proclaiming the gospel of the kingdom, and curing every disease and illness among the people."
+				</p>
+				<p class="sj-litany">
+				There were a few groups who weren't happy to see Jesus, including the Pharasees, the Samaritans who lost their pig herd, and the Romans who ignored him. Some weren't even looking for Jesus, such as the woman at the well or the man in the tombs, and Jesus changed their lives.
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>Except the rich man</h2>
+				<p class="sj-litany">
+				In Matthew 19, a rich man approaches Jesus and said, “Teacher, what good must I do to gain eternal life?”  After confirming the commandments, the man presses Jesus, and Jesus replies that he must give away all he owns to the poor and follow Jesus.  "When the young man heard this statement, he went away sad, for he had many possessions."
+				</p>
+				<p class="sj-litany">
+				What makes this encounter unique is that the rich man didn't want healing or forgiveness, he just wanted to be ratified as good by Jesus.  
+				</p>
+			</div>			
+			<div class="sj-prayer">				
+				<h2>The bottom line</h2>
+				<p class="sj-litany">
+				Jesus doesn't accept anyone as they are.  He accepts them, but the 'as they are part' goes into a dumpster.
+				</p>
+			</div>				
+		</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		const tdt = new Date();
+		let day = tdt.getDay()
+		var theclick = 1;
+		getsj(day+1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+theclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			//$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 7) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+		
+		};
+		
+	</script>
+
+</html>

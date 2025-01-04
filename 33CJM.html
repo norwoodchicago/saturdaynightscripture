@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Daily Praper">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--base href="https://www.saturdaynightscripture.com/"-->
+	<!--base href="http://127.0.0.1:8887/" -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+	h2 {color: #640000;}
+	</style>
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main"></section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/sns-site.js"></script>
+
+	<script> 
+		var topx = "/33CJM/";
+		var subj = "NA";
+		var topictogoto = 1;
+		var jumptonumber = 1;
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0'); 
+		});	
+		<!-- Decide whether to load toc or topic here-->
+		$(function(){
+		  var loadtopic = true;
+		  var sPageURL = window.location.search.substring(1);
+		  
+		  if(typeof sPageURL === undefined) {
+			loadtopic=false;
+		  } else if(sPageURL == "") {
+		     loadtopic=false;
+		  } else if(isNaN(sPageURL)) {
+			loadtopic=false;
+		  } else {
+		    jumptonumber =  Number(sPageURL);
+		  }
+		  
+		  //The only parameter we are taking is ?#
+		  if(loadtopic) {
+				topictogoto = novenaGo("CJM", jumptonumber, 33)
+				topx = "/33CJM/topic"+topictogoto+".html";
+				loadtopic=true;				
+		  } else {
+				topictogoto = novenaNumber("CJM", 33); 
+
+				topx = "/33CJM/topic"+topictogoto+".html";
+				loadtopic=true;
+	  
+		  }
+		  
+		  
+		  if(loadtopic)
+		  {
+		      $(".inc-main").load(topx+" .container", '0', function(response, status, xhr) {
+			      if(status=="error") {
+						loadpage(subj);
+				  } 
+			    
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				$(".nav-link").removeClass("active");
+				$(".nav-"+subj).addClass("active");
+				$("div.navbar-collapse").removeClass("show");
+				
+				$(function(){
+				  $(".inc-prayer-star").load("/33CJM/prayer-star.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-magnificat").load("/33CJM/prayer-magnificat.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-holyspirit").load("/33CJM/prayer-holyspirit.html .inc-part", '0', function(response, status, xhr) {
+					$(".parts").hide();
+					$(".part"+topictogoto).show();
+				  }); 
+				});					
+			  });
+		  
+		  } 
+		  
+		  if(loadtopic == false)  {
+			loadpage(subj);		  
+		  }
+  
+		});		
+		
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});	
+		
+		
+		function loadpage(subj) {
+			var z = 1;
+
+			$(".inc-main").load("/" + subj + "/topicx.html .container", 'm0', function() {
+				var tmp = $("div.topicrow").html();
+				$.getJSON("/" + subj + "/topiclist.json", function( data ) {
+					//topx = data;
+					$.each( data.items, function(i,item) {
+						var tmpn = tmp.replace("aaa", item.a);
+						tmpn = tmpn.replace("bbb", item.b);
+						tmpn = tmpn.replaceAll("ddd", z.toString());
+						tmpn = tmpn.replaceAll("ccc", item.c);
+						$("div.topiclist").append(tmpn);
+						z = z + 1;
+					})
+				});
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				$(".nav-link").removeClass("active");
+				$(".nav-"+subj).addClass("active");
+				$("div.navbar-collapse").removeClass("show");
+
+			});		  
+		 }
+		  
+		 function cjmNovenaSkip() {
+			topictogoto = novenaSkip("CJM", 33);
+			
+				//topictogoto = novenaNumber("CJM", 33); 
+
+				topx = "/33CJM/topic"+topictogoto+".html";			
+			
+			
+		      $(".inc-main").load(topx+" .container", '0', function(response, status, xhr) {
+			      if(status=="error") {
+						loadpage(subj);
+				  } 
+			    
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				$(".nav-link").removeClass("active");
+				$(".nav-"+subj).addClass("active");
+				$("div.navbar-collapse").removeClass("show");
+				
+				$(function(){
+				  $(".inc-prayer-star").load("/33CJM/prayer-star.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-magnificat").load("/33CJM/prayer-magnificat.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-holyspirit").load("/33CJM/prayer-holyspirit.html .inc-part", '0', function(response, status, xhr) {
+					$(".parts").hide();
+					$(".part"+topictogoto).show();
+				  }); 
+				});					
+			  });
+		 }
+		 
+		 function cjmNovenaBack() {
+			topictogoto = novenaBack("CJM", 33);
+			
+				//topictogoto = novenaNumber("CJM", 33); 
+
+				topx = "/33CJM/topic"+topictogoto+".html";			
+			
+			
+		      $(".inc-main").load(topx+" .container", '0', function(response, status, xhr) {
+			      if(status=="error") {
+						loadpage(subj);
+				  } 
+			    
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				$(".nav-link").removeClass("active");
+				$(".nav-"+subj).addClass("active");
+				$("div.navbar-collapse").removeClass("show");
+				
+				$(function(){
+				  $(".inc-prayer-star").load("/33CJM/prayer-star.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-magnificat").load("/33CJM/prayer-magnificat.html .inc-part", '0'); 
+				});	
+				$(function(){
+				  $(".inc-prayer-holyspirit").load("/33CJM/prayer-holyspirit.html .inc-part", '0', function(response, status, xhr) {
+					$(".parts").hide();
+					$(".part"+topictogoto).show();
+				  }); 
+				});					
+			  });
+		 }		 
+		
+	</script>
+
+</html>

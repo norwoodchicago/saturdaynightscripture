@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Super Novena">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+		div.sj-prayer {margin-bottom:8px;}
+		p.sj-litany, li {margin-bottom:8px; font-size:1.2em}
+	</style>	
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">Bible</h1>
+				<p class="lead">Two different approaches</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>Two people went out to plant</h2>
+				<p class="sj-litany">
+				One person was a Spanish speaker and one person was Scottish.
+				</p>
+				<p class="sj-litany">
+				The Spanish speaker planted the seeds and watered it. He stood over the seeds, gently moved the dirt, watered some more, and began to fertalize the seeds. Like a mother, he smoothed the dirt over and waited. Then he watered some more.
+				</p>
+				<p class="sj-litany">
+				The Scottish speaker left for a minute and came back with a box.  He stepped up onto the box and yelled out to the people in the field, "Listen up! Everybody find some seeds and plant them. I'm not doing you're work for you!"
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>These are two real people</h2>
+				<p class="sj-litany">
+				When a Spanish person from any Spanish speaking country wants to say something, he puts a lot of effort and care into the discussion. His genuine intent is to help you understand what he has to say. For each sentence delivered by a normal speaker, a Spanish speaking speaker will deliver 5.  If you ask any questions, he will start over and tell you all of the things that he already told you. I call this the Patriarchal talking approach.
+				</p>
+				<p class="sj-litany">
+				An English speaking person of a specific cultural tradition within the British Isles will provide one dry quip and expect you to figure it out for yourself. I call this the Industrial Revolution talking approach.
+				</p>
+				<p class="sj-litany">				
+				This section of the website is going to be a mix, but mostly Scottish.
+				</p>				
+			</div>			
+		</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		const tdt = new Date();
+		let day = tdt.getDay()
+		var theclick = 1;
+		getsj(day+1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+theclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			//$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 7) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+		
+		};
+		
+	</script>
+
+</html>

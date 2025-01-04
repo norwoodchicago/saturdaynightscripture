@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Super Novena">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+		div.sj-prayer {margin-bottom:8px;}
+		p.sj-litany {margin-bottom:8px;}
+	</style>	
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">Evangalization by Adele</h1>
+				<p class="lead">God gave us Adele to show us how to evangalize</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>Who was Adele Brise?</h2>
+				<p class="sj-litany">
+				Adele was a Belguian woman who moved with her family to northern Wisconsin.  One day, the Mother of God appeared to Adele and asked her to teach the Catholic faith to the children of former Catholics. Mary suggested a basic Catechism suitable for farm kids. 
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>Catechism means walking</h2>
+				<p class="sj-litany">
+				Adele walked up to 50 miles a day across thousands of acres to get to the farms to teach the kids.
+				</p>
+				<p class="sj-litany">
+				I wonder if Adele said the rosary when she walked. Probably. All of the mysteries of the rosary involve walking, either an extraordinary distance, under duress, or worse up a hill carrying something. 
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>Catechism means begging</h2>
+				<p class="sj-litany">
+				Adele would show up at a farm and ask to teach their children. The poor, overworked farmers would say no, my children are busy helping on the farm so we can survive. Adele got them to agree to let Adele do some chores and in return Adele got the privilege to teach their kids Catechism.
+				</p>
+				<p class="sj-litany">
+				This is self explanatory.  One may need negotiate or argue to get past a closed door when taling about the faith. This is what Jehovah's witnesses must endure, except they are pushy and wierd. Pause for irony. 
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<h2>When the fire hit, they farmers knew where to go</h2>
+				<p class="sj-litany">
+				There is a shrine in Champion Wisconsin because there was a fire. This fire happened at the same time as similar fires in Chicago and Italy. 
+				The reason Champion Wisconsin has a shrine - the only one like it in the U.S. - is because it had the worst fire in recorded history, much much worse than the Chicago fire or the Italian fire that happened at the same time. 
+				</p>
+				<p class="sj-litany">	
+				The farmers fled to the little complex where Adele had a convent and a school. Everything in the surrounding country side was burned and all parished, but the convent and school sat unharmed at the edge of the fire.
+				</p>
+			</div>	
+			<div class="sj-prayer">				
+				<h2>The bottom line</h2>
+				<p class="sj-litany">			
+				Get out there, walk, and meet people. Let them know where the compound is, and wait for the fire.
+				</p>
+				<p class="sj-litany">
+				In between these two events, teach something of the faith.
+				</p>
+			</div>				
+		</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		const tdt = new Date();
+		let day = tdt.getDay()
+		var theclick = 1;
+		getsj(day+1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+theclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			//$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 7) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+		
+		};
+		
+	</script>
+
+</html>

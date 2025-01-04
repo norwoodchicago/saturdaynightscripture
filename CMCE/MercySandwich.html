@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="title" content="Super Novena">
+	<title>Saturday Night Scripture</title>
+	<meta name="description" content="Saturday Night Scripture">
+	<meta name="keywords" content="Bible, Catholic, Fellowship, Scripture">
+	<meta name="author" content="Norwood">
+	<base href="/">
+	<!--base href="http://127.0.0.1:8887/" -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+    <!-- Custom styles for this template -->
+    <link href="/assets/sns.css" rel="stylesheet">
+	<style>
+		div.sj-prayer {margin-bottom:8px;}
+		p.sj-litany, li {margin-bottom:8px; font-size:1.2em}
+	</style>		
+  </head>
+  <body>
+	<div class="sns-index-top d-none d-lg-block d-xl-block"></div>
+	
+	<section class="inc-nav"></section>
+	
+	<section class="inc-main">
+		<main role="main" class="container">
+			<div class="topictron">
+				<h1 class="sns-topic-number">The Mercy Sandwich</h1>
+				<p class="lead">An explanation of the maginificat - big mercy and small mercy.</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>Why a better explanation is needed</h2>
+				<p class="sj-litany">
+				There are many explanations of the magnificat in print and from the pulpit. They all suffer from a holy person who means well but has never experienced the power of mercy. I want the guy in the graveyard cutting himself and breaking his chains to explain this amazing prophecy of mercy.
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<p class="sj-litany">
+				At the time of Jesus condemnation, he met three people. Pilot, who had ultimate power, Caiaphas representing the group convinced of their own righteousness and protecting their social status at all costs, and Herod who oozed creepiness in his excessive self indulgence.  How many thousands did these three oppress?  Big mercy would be to help the thousands by freeing these three from their sins. Small mercy is to feed a man, but big mercy is to feed thousands by converting the evil food company executive conspiring to raise prices and limit supply.
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<p class="sj-litany">
+				I once read an explanation in the monthly magazine Magnicat trying to explain away the fact that Mary is saying "disperse the arrogant", "thrown down rulers", and "rich he has sent away empty". It appears to be out of character and somewhat smity. Why is the nicest, most humble human on record talking like this? The author, a holy priest, tried and failed to understand this language.
+				</p>
+				<p class="sj-litany">
+				She's defining a vision of mercy and the primary beneficiaries are the worst sinners. 
+				</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>The Mercy Sandwich</h2>
+				<p class="sj-litany">
+				The beginning of this prophecy is <i>His mercy is from age to age to those who fear him.</i> The end is <i>remembering his mercy</i>. These are the sesame seed buns of mercy.
+				</p>
+				<p class="sj-litany">
+				The condiments are a) lifted up the lowly, b) hungry he has filled with good things, and c) helped Isreal his servant. Being fed when you are hungry or lifted up when you are down is great; this may make heaven happy but they are not going to rejoice. This is small mercy.
+				</p>
+				<p class="sj-litany">
+				The all beef patties of mercy are helping the powerful, the arrogant, and the rich, which, unfortunately, means taking away the power, arrogance and wealth. It's not easy to go from rich to poor, but it's a lot better than living your whole life oppressing people and then seeing this movie played back at final judgement. What if these people receive mercy instead of justice? Is that fair? Are they going to be forgiven too? It depends on whose side you are on. 
+				</p>
+				<p class="sj-litany">
+				I'm not sure what to do with <i>handmaid’s lowliness</i>.  Is this a condiment on the side? Is this the plate?
+				</p>
+			</div>
+			<div class="sj-prayer">
+				<h2>It's a prophecy</h2>
+				<p class="sj-litany">
+				There's a prophecy here that I don't fully grasp. It's a game changer like <i>love your enemies</i>. It appears to say that we need to pray for mercy, especially mercy for the powerful, rich and arrogant. We're not praying for them to have a good day or become richer. It's mercy, and mercy is the greatest defining characteristic of who God is, so it's definately good. But it may have an element of boarding the pain train.
+				</p>
+			</div>
+			<div class="sj-prayer">				
+				<p class="sj-litany">
+				Perhaps we spend too much time praying for the poor and not enough time praying for those responsible.
+				</p>
+				<p class="sj-litany">
+				When Jesus said pray for your enemies, he didn't say what to pray for. Most likely, as a Catholic, your enemies are doing something bad to you or others. A prayer for forgiveness is nice. A prayer for conversion is better. A prayer for mercy is both.
+				</p>
+			</div>
+	</main>	
+	</section>
+	
+	<section class="inc-footer"></section>
+	<section class="d-none sns-data" data-topic="0"></section>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<script> 
+		
+		$(function(){
+		  $(".inc-nav").load("/nav.html .navbar", '0', function(response, status, xhr) {
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			$("div.navbar-collapse").removeClass("show");		  
+		  });	
+		});	
+
+		$(function(){
+		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
+		});			
+
+		const tdt = new Date();
+		let day = tdt.getDay()
+		var theclick = 1;
+		getsj(day+1);
+		function getsj(skipclick, rand, e)	{
+		
+			$(".nav-link").removeClass("active");
+			$(".nav-sj").addClass("active");
+			if(skipclick > 0) {
+				theclick = skipclick;
+			} 
+
+			$('.sjlink').removeClass("active");
+			$('.sjlink'+theclick).addClass("active");
+							
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
+			$("div.navbar-collapse").removeClass("show");
+			$(".sjtitle").hide();
+			$(".sjtitle" + theclick).show();
+			//$('h1.sns-topic-number').text("Prayer Day " + theclick);
+			if(theclick == 7) {
+				theclick = 0;
+			}							
+			theclick = theclick+1;		
+		
+		};
+		
+	</script>
+
+</html>
