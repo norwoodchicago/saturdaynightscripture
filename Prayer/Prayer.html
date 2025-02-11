@@ -152,7 +152,7 @@
 				var topicnum = ddate + adjfact;
 				loadtopic=true;
 			}
-			console.log('topicnum=' + topicnum);
+			//console.log('topicnum=' + topicnum);
 			//alert('topicnum='+topicnum);
 			window.topicnum=topicnum;
 
@@ -186,7 +186,7 @@
 				$("h2.psalm-lead").html('Psalm '+psalmins);
 				
 				$(".sns-psalm").load("/Prayer/Psalms/psalm"+psalmins+".html .sj-container", 'm0', function() {});
-				$(".sns-praisepsalm").load("/Prayer/PraisePsalms/psalm"+praiseins+".html .sj-container", 'm0', function() {}) ;				
+				$(".sns-praisepsalm").load("/Prayer/Psalms/psalm"+praiseins+".html .sj-container", 'm0', function() {}) ;				
 				$(".sns-tagline").load("/Prayer/Nt/"+gospelins+".html .sj-tagline", 'm0', function() {});
 				$(".sns-nt").load("/Prayer/Nt/"+gospelins+".html .sj-container", 'm0', function() {});
 				$(".sns-prayerlist").load("/Prayer/Prayerlist/prayers"+prayersins+".html .sj-prayerlist", 'm0', function() {});
@@ -203,8 +203,8 @@
 			topicnum=Number(window.topicnum)+1;
 			if(topicnum==35) {topicnum=0;}
 			//alert('topicnum='+topicnum);			
-			//alert('loading url /Prayer/DailyPrayer.html?page='+topicnum);
-			window.open("/Prayer/DailyPrayer.html?page="+topicnum,"_self")
+			//alert('loading url /Prayer/Prayer.html?page='+topicnum);
+			window.open("/Prayer/Prayer.html?page="+topicnum,"_self")
 		}
 		
 		function divclick(thediv) {
