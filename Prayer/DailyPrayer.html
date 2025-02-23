@@ -10,6 +10,7 @@
 	<base href="/">
 	<!--base href="http://127.0.0.1:8887/" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
@@ -168,35 +169,37 @@
 				//topx = data;
 				$.each( data.items, function(i,item) {
 					if(z==topicnum) {
-						dayins=item.a;
-						psalmins=item.b;
-						gospelins=item.c;
-						prayersins=item.d;
-						praiseins=item.e;
+						dayins=item.a;console.log(dayins);
+						psalmins=item.b;console.log('psalm ='+psalmins);
+						gospelins=item.c;console.log('gospel'+gospelins);
+						prayersins=item.d;console.log('prayers='+prayersins);
+						praiseins=item.e;console.log('praise='+praiseins);
 					}
 					z = z + 1;	
 				})
-				console.log(dayins);
-				console.log('psalm ='+psalmins);
-				console.log(gospelins);
-				console.log('prapers='+prayersins);				
-				console.log('prapers='+praiseins);
-				$("h1.sns-topic-number").html(dayins);
-				//$("p.lead").html(taglineins);				
-				$("h2.psalm-lead").html('Psalm '+psalmins);
 				
-				$(".sns-psalm").load("/Prayer/Psalms/psalm"+psalmins+".html .sj-container", 'm0', function() {});
-				$(".sns-praisepsalm").load("/Prayer/PraisePsalms/psalm"+praiseins+".html .sj-container", 'm0', function() {}) ;				
+				$("h1.sns-topic-number").html(dayins);
+				$(".sns-psalm").load("/Prayer/Psalms/psalm"+psalmins+".html .sj-container", 'm0', function() {
+					$('h2.psalm-lead').parent().children('p').hide();	
+					$('h2.psalm-lead').parent().children('p.sj-short').show();	
+					$('p.sj-short').click(function(){ 
+						$(this).parent().children('p').show();		
+						$(this).hide();						
+					});
+				});
+				$(".sns-praisepsalm").load("/Prayer/PraisePsalms/psalm"+praiseins+".html .sj-container", 'm0', function() {
+					$('h2.psalm-lead').parent().children('p').hide();	
+					$('h2.psalm-lead').parent().children('p.sj-short').show();				
+					$('p.sj-short').click(function(){ 
+						$(this).parent().children('p').show();		
+						$(this).hide();						
+					});					
+				}) ;				
 				$(".sns-tagline").load("/Prayer/Nt/"+gospelins+".html .sj-tagline", 'm0', function() {});
 				$(".sns-nt").load("/Prayer/Nt/"+gospelins+".html .sj-container", 'm0', function() {});
 				$(".sns-prayerlist").load("/Prayer/Prayerlist/prayers"+prayersins+".html .sj-prayerlist", 'm0', function() {});
 				$(".sns-closer").load("/Prayer/Prayerlist/prayers"+prayersins+".html .sj-closer", 'm0', function() {});
-				
 			});
-		
-			//Step 3 Load the pages and replace 			
-
-
 		});
 		
 		function skiptonext() {
@@ -215,6 +218,7 @@
 				$(thediv).addClass('clicked');
 			}
 		}
+			
 		
 	</script>
 
