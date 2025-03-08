@@ -130,31 +130,25 @@
 			}		
 
 			if(!loadtopic) {
-				var theday = 0;
-				var pmonth = 12; //The month to print
-				var dmonth = pmonth - 1; //month of calculation
-				if(theday == 0) {
-					theday = 1;
-				} else {
-					theday = theday + 1;
-				}
-				//var d = new Date(2021,dmonth,theday);
 				var d = new Date();
 				var ddow = d.getDay();
-				var ddate = d.getDate();
-				var f = new Date(d.getFullYear(), d.getMonth(), 1);
-				var fdow = f.getDay(); 
-				var adjfact = fdow - 1;
+				var ddate = d.getDate(); 
 
+				console.log('the day of week from date ='+ddow);  //use this
+				console.log('the day a month ='+ddate); // use this
+				
+				topicnum = ddow;
+				while( ddate > 7) {
+					ddate=ddate-7;
+					ddow=ddow+7
+				}
+				
 				if((ddow == 0) && (fdow != 0)) {
 					adjfact = adjfact - 7;
 				}
-
-				var topicnum = ddate + adjfact;
 				loadtopic=true;
 			}
 			console.log('topicnum=' + topicnum);
-			//alert('topicnum='+topicnum);
 			window.topicnum=topicnum;
 
 			//Step 2 find the data from the json file
