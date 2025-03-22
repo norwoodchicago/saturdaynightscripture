@@ -103,51 +103,54 @@
 		  $(".inc-footer").load("/footer.html .page-footer", '0'); 
 		});			
 		
-		var topicnum=0;
+		var topicnum=50;
+		var daynum=50;
 
 		$(function(){
-			var loadtopic = false;
 			var sPageURL = window.location.search.substring(1);
-			
-			psalmtopic = "/Prayer/psalm0.html";
-			nttopic = "/Prayer/nt0.html";
 
-			//Step 1 Pick a day
-			if(typeof sPageURL === undefined) {loadtopic=false;}
-			else if(sPageURL == "") {loadtopic=false;}		
-		
-			if(!loadtopic) {
+			//Step 1 Parameter url
+			if(typeof sPageURL === undefined) {console.log = function () {};}
+			else if(sPageURL == "") {console.log = function () {};}
+			else {
 				topicparam = sPageURL.split('=');
 				if(typeof topicparam === undefined) {
-				   topicnum = 0;
-				   loadtopic=false;
+				   console.log = function () {};
 				} else if(topicparam.length == 1) {
-					loadtopic=false;
+					console.log = function () {};
 				} else {
-					topicnum=topicparam[1]
-					loadtopic=true;
+					topicnum = prompt("Enter the day of month", "1");
+					if(Number.isInteger(topicnum)) {topicnum=Number(topicnum);}
+					daynum = prompt("Enter the day of weeks (sun=0)", "1");		
+					if(Number.isInteger(daynum)) {daynum=Number(daynum);}					
 				}
-			}		
-
-			if(!loadtopic) {
-				var d = new Date();
-				var ddow = d.getDay();
-				var ddate = d.getDate(); 
-
-				console.log('the day of week from date ='+ddow);  //use this
-				console.log('the day a month ='+ddate); // use this
-				
-				topicnum = ddow;
-				while( ddate > 6) {
-					ddate=ddate-7;
-					ddow=ddow+7
-					console.log('ddate='+ddate+' ddow='+ddow);
-				}
-				
-				topicnum = ddow;
-
-				loadtopic=true;
 			}
+
+			var d = new Date();
+			var dayofweek = d.getDay();
+			var dayofmonth = d.getDate(); 
+			
+			console.log('DOM entry ='+ topicnum);
+			console.log('DOW entry ='+ daynum);			
+			
+			if(topicnum !=50) {dayofmonth=Number(topicnum)};
+			if(daynum !=50) {dayofweek=Number(daynum)};
+
+			console.log('the day of week from date ='+dayofweek);  //use this
+			console.log('the day a month ='+dayofmonth); // use this
+				
+			//dayofmonth=dayofmonth-7;
+			var i=0;
+			
+			while( dayofmonth > 7) {
+				dayofmonth=dayofmonth-7;
+				dayofweek=dayofweek+7
+				console.log('i:'+i+'...dayofmonth='+dayofmonth+'...dayofweek='+dayofweek);
+				i=i+1;
+			}
+			
+			topicnum = dayofweek;
+
 			console.log('topicnum=' + topicnum);
 			window.topicnum=topicnum;
 
